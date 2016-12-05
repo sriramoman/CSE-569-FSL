@@ -4,12 +4,11 @@ import csv
 import traceback
 import numpy as np
 
-nfeatures = 2
-
-momentum="nag"
-# momentum=None
-# momentum = "polyak"
-dataset = 'admission.csv'
+nfeatures=2
+Wo=[1, 2, 3, 2, 5, 6, 7, 8, 9][:nfeatures]
+Wn=[0, 0, 0, 0, 0, 0, 0, 0, 0][:nfeatures]
+filename='admission.csv'
+# filename='dataset.csv'
 
 
 def split_dataset(data, train_percentage):
@@ -50,8 +49,8 @@ def sigma(train, W, i):
 
 
 def LR(train):
-    W_old = [1, 2, 3]
-    W_new = [0, 0, 0]
+    W_old = Wo
+    W_new = Wn
 
     MAX_ITR = 100
     itr = 0
@@ -67,7 +66,7 @@ def LR(train):
 
 def rep(i, data):
     if i == (len(data) - 1):
-        if data[i] == '2':
+        if data[i] == '2' or data[i] == '1':
             return 1
         else:
             return -1
@@ -78,7 +77,7 @@ def rep(i, data):
 
 
 def run(TRAIN_SIZE=.7):
-    FILE = dataset
+    FILE = filename
     lines = csv.reader(open(FILE))
     data = list(lines)
     for i in range(len(data)):
@@ -117,10 +116,18 @@ def hinge(training_data):
     for parameter in training_data:
         x1.append(parameter[0])
         x2.append(parameter[1])
-        x3.append(parameter[2])
-        y.append(parameter[3])
-    x = np.vstack((x1, x2, x3)).T
+        # x3.append(parameter[2])
+        # x4.append(parameter[3])
+        # x5.append(parameter[4])
+        # x6.append(parameter[5])
+        # x7.append(parameter[6])
+        # x8.append(parameter[7])
+        # x9.append(parameter[8])
+        # x10.append(parameter[9])
+        y.append(parameter[2])
+        # y.append(parameter[9])
     # x = np.vstack((x1, x2, x3, x4, x5, x6, x7, x8, x9)).T
+    x = np.vstack((x1, x2)).T
     return doTraning(x, y)
 
 
@@ -140,12 +147,12 @@ def hinge_loss(w, x, y):
         sig = sigmoid(fx)
         v = y_ * sig
         loss += max(0, 1 - v)
-        # g = sigmoid(fx)(1 - sigmoid(fx))
-        grad += 0 if v > 1 else -y_ * x_
+        g = sigmoid(fx)*(1 - sigmoid(fx))
+        grad += 0 if v > 1 else -y_ *x* g
     return (loss, grad)
 
 
-def doTraning(x, y, thet=np.array((.1, .02, .3)), nita=0.1, thresh=0.1):
+def doTraning(x, y, thet=np.array((.1, .02, .3, .4, .5, .6, .3, .5, .2)[:nfeatures]), nita=0.001, thresh=0.0001):
     grad = np.inf
     ws = np.zeros((nfeatures, 0))
     ws = np.hstack((ws, thet.reshape(nfeatures, 1)))
@@ -154,26 +161,23 @@ def doTraning(x, y, thet=np.array((.1, .02, .3)), nita=0.1, thresh=0.1):
     loss0 = np.inf
     theta = 1
     v = 1
-    u = 1
-    if momentum == None:
-        u = 0
-    while np.abs(delta) > thresh:
-        feedback = {}
-        feedback['polyak'] = 0
-        feedback['nag'] = u * v
-        feedback[None] = 0
-        loss, grad = hinge_loss(thet + u * v, x, y)
+    u = 0
+    while np.abs(delta) > thresh and ctr<500:
+        loss, grad = hinge_loss(thet+u*v, x, y)
         print loss
+        # grad += velocity_w * velocity
         delta = loss0 - loss
         loss0 = loss
         if np.linalg.norm(grad) == 0:
             break
         nabla = grad / np.linalg.norm(grad)
-        v = u * v - nita * nabla
+        # new_theta = (1 + np.sqrt(1 + 4 * (theta ** 2)))
+        # nag_factor = (theta - 1) / new_theta
+        v = u*v - nita*nabla
         thet = thet + v
         ws = np.hstack((ws, thet.reshape((nfeatures, 1))))
         ctr += 1
-    print "Hinge loss with " + momentum + " took " + str(ctr) + " iterations."
+    print ws
     return np.sum(ws, 1) / np.size(ws, 1)
 
 

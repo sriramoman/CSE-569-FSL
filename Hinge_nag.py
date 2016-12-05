@@ -9,7 +9,7 @@ import numpy as np
 momentum = "polyak"
 filename='admission.csv'
 
-nfeatures=2
+nfeatures=3
 Wo=[1, 2, 3, 2, 5, 6, 7, 8, 9][:nfeatures]
 Wn=[0, 0, 0, 0, 0, 0, 0, 0, 0][:nfeatures]
 # filename='dataset.csv'
@@ -39,7 +39,7 @@ def predict(line, W):
     if fx(line, W) >= 0.5:
         return 1
     else:
-        return -1
+        return 0
 
 
 def sigma(train, W, i):
@@ -120,18 +120,18 @@ def hinge(training_data):
     for parameter in training_data:
         x1.append(parameter[0])
         x2.append(parameter[1])
-        # x3.append(parameter[2])
-        # x4.append(parameter[3])
-        # x5.append(parameter[4])
+        x3.append(parameter[2])
+        x4.append(parameter[3])
+        x5.append(parameter[4])
         # x6.append(parameter[5])
         # x7.append(parameter[6])
         # x8.append(parameter[7])
         # x9.append(parameter[8])
         # x10.append(parameter[9])
-        y.append(parameter[2])
+        y.append(parameter[5])
         # y.append(parameter[9])
     # x = np.vstack((x1, x2, x3, x4, x5, x6, x7, x8, x9)).T
-    x = np.vstack((x1, x2)).T
+    x = np.vstack((x1, x2, x3, x4, x5)).T
     return doTraning(x, y)
 
 
@@ -151,6 +151,7 @@ def hinge_loss(w, x, y):
         sig = sigmoid(fx)
         v = y_ * sig
         loss += max(0, 1 - v)
+        print loss
         g = sigmoid(fx)*(1 - sigmoid(fx))
         grad += 0 if v > 1 else -y_ *x* g
     return (loss, grad)

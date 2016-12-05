@@ -20,11 +20,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dataset.csv" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dataset.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataset.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2278">
+            <state relative-caret-position="-11251">
               <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admission.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admission.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="1437" column="8" selection-start-line="1437" selection-start-column="8" selection-end-line="1437" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -33,8 +43,8 @@
       <file leaf-file-name="dataset_bk.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataset_bk.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="3145">
+              <caret line="185" column="27" selection-start-line="185" selection-start-column="27" selection-end-line="185" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -43,8 +53,8 @@
       <file leaf-file-name="rand.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rand.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10234">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="-16215">
+              <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -53,34 +63,35 @@
       <file leaf-file-name="Hinge_nag.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hinge_nag.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="164" column="17" selection-start-line="164" selection-start-column="17" selection-end-line="164" selection-end-column="17" />
+            <state relative-caret-position="221">
+              <caret line="113" column="14" selection-start-line="113" selection-start-column="14" selection-end-line="113" selection-end-column="14" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#385#545#0" expanded="false" />
-                <element signature="e#574#641#0" expanded="false" />
-                <element signature="e#672#850#0" expanded="false" />
-                <element signature="e#872#1175#0" expanded="false" />
-                <element signature="e#1200#1387#0" expanded="false" />
-                <element signature="e#1418#2158#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Hinge_polyak.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Hinge_polyak.py">
+      <file leaf-file-name="Hinge_nag_corrected.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Hinge_nag_corrected.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="143" column="31" selection-start-line="143" selection-start-column="31" selection-end-line="143" selection-end-column="40" />
+            <state relative-caret-position="221">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#122#361#0" expanded="false" />
-                <element signature="e#385#545#0" expanded="false" />
-                <element signature="e#574#641#0" expanded="false" />
-                <element signature="e#672#850#0" expanded="false" />
-                <element signature="e#872#1175#0" expanded="false" />
-                <element signature="e#1200#1387#0" expanded="false" />
+                <element signature="e#2634#2724#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LogLikelihood_nag.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LogLikelihood_nag.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -89,7 +100,7 @@
       <file leaf-file-name="LogLikelihood_polyak.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LogLikelihood_polyak.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
+            <state relative-caret-position="598">
               <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -100,15 +111,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LogLikelihood_nag.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LogLikelihood_nag.py">
+      <file leaf-file-name="Hinge_polyak.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Hinge_polyak.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+            <state relative-caret-position="795">
+              <caret line="152" column="18" selection-start-line="152" selection-start-column="18" selection-end-line="152" selection-end-column="18" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#102#341#0" expanded="false" />
-                <element signature="e#579#657#0" expanded="false" />
+                <element signature="e#122#361#0" expanded="false" />
+                <element signature="e#385#545#0" expanded="false" />
+                <element signature="e#574#641#0" expanded="false" />
+                <element signature="e#672#850#0" expanded="false" />
+                <element signature="e#872#1175#0" expanded="false" />
+                <element signature="e#1200#1387#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -123,10 +138,12 @@
         <option value="$PROJECT_DIR$/Hinge.py" />
         <option value="$PROJECT_DIR$/Hinge copy.py" />
         <option value="$PROJECT_DIR$/lr copy 2.py" />
-        <option value="$PROJECT_DIR$/Hinge_polyak.py" />
         <option value="$PROJECT_DIR$/LogLikelihood.py" />
-        <option value="$PROJECT_DIR$/LogLikelihood_nag.py" />
+        <option value="$PROJECT_DIR$/Hinge_polyak.py" />
+        <option value="$PROJECT_DIR$/Hinge_nag_corrected.py" />
+        <option value="$PROJECT_DIR$/admission.csv" />
         <option value="$PROJECT_DIR$/Hinge_nag.py" />
+        <option value="$PROJECT_DIR$/LogLikelihood_nag.py" />
       </list>
     </option>
   </component>
@@ -261,6 +278,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="FSL" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LogLikelihood_nag.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Hinge_nag_corrected" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="FSL" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Hinge_nag_corrected.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -412,18 +446,20 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.lr" />
       <item index="1" class="java.lang.String" itemvalue="Python.lr copy 2" />
       <item index="2" class="java.lang.String" itemvalue="Python.Hinge copy" />
       <item index="3" class="java.lang.String" itemvalue="Python.LogLikelihood_nag" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Hinge_nag_corrected" />
     </list>
     <recent_temporary>
-      <list size="4">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.LogLikelihood_nag" />
-        <item index="1" class="java.lang.String" itemvalue="Python.lr copy 2" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Hinge_nag_corrected" />
         <item index="2" class="java.lang.String" itemvalue="Python.lr" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Hinge copy" />
+        <item index="3" class="java.lang.String" itemvalue="Python.lr copy 2" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Hinge copy" />
       </list>
     </recent_temporary>
   </component>
@@ -438,7 +474,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32859176" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32880846" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32716927" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32716927" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25889048" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -479,7 +515,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="25" />
+      <option name="time" value="31" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -498,12 +534,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#385#545#0" expanded="false" />
-            <element signature="e#574#641#0" expanded="false" />
-            <element signature="e#672#850#0" expanded="false" />
-            <element signature="e#872#1175#0" expanded="false" />
-            <element signature="e#1200#1387#0" expanded="false" />
-            <element signature="e#1418#2158#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -526,10 +556,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lr copy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="70" column="63" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Hinge_polyak.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="143" column="31" selection-start-line="143" selection-start-column="31" selection-end-line="143" selection-end-column="40" />
+        <state relative-caret-position="795">
+          <caret line="152" column="18" selection-start-line="152" selection-start-column="18" selection-end-line="152" selection-end-column="18" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <element signature="e#122#361#0" expanded="false" />
@@ -542,21 +580,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LogLikelihood_nag.py">
+    <entry file="file://$PROJECT_DIR$/dataset.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#102#341#0" expanded="false" />
-            <element signature="e#579#657#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="-11251">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LogLikelihood_polyak.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
+        <state relative-caret-position="598">
           <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
@@ -566,51 +600,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lr copy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="70" column="63" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataset_bk.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="3145">
+          <caret line="185" column="27" selection-start-line="185" selection-start-column="27" selection-end-line="185" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rand.csv">
+    <entry file="file://$PROJECT_DIR$/admission.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10234">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="173">
+          <caret line="1437" column="8" selection-start-line="1437" selection-start-column="8" selection-end-line="1437" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Hinge_nag.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="164" column="17" selection-start-line="164" selection-start-column="17" selection-end-line="164" selection-end-column="17" />
+        <state relative-caret-position="221">
+          <caret line="113" column="14" selection-start-line="113" selection-start-column="14" selection-end-line="113" selection-end-column="14" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#385#545#0" expanded="false" />
-            <element signature="e#574#641#0" expanded="false" />
-            <element signature="e#672#850#0" expanded="false" />
-            <element signature="e#872#1175#0" expanded="false" />
-            <element signature="e#1200#1387#0" expanded="false" />
-            <element signature="e#1418#2158#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataset.csv">
+    <entry file="file://$PROJECT_DIR$/Hinge_nag_corrected.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2278">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        <state relative-caret-position="221">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#2634#2724#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rand.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-16215">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LogLikelihood_nag.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

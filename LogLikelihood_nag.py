@@ -3,6 +3,15 @@ import random
 import csv
 import traceback
 
+nfeatures=3
+Wo = [0, 1, 2, 3, 2, 5, 6, 7, 8, 9][:nfeatures]
+Wn = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0][:nfeatures]
+
+# momentum="nag"
+# momentum=None
+momentum = "nag"
+filename='admission.csv'
+
 def split_dataset(data, train_percentage):
     train = []
     test = list(data)
@@ -37,6 +46,7 @@ def sigma(train, W, i,u,v):
         W[k] += u*v
     for line in train:
         loss = log_loss(line, W)
+        # print loss
         if i == 0:
             sum += (line[-1] - loss)
         else:
@@ -45,16 +55,19 @@ def sigma(train, W, i,u,v):
 
 
 def LR(train):
-    W_old = [0, 1, 2, 3, 2, 5, 6, 7, 8, 9]
-    W_new = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    W_old = Wo[:nfeatures]
+    W_new = Wn[:nfeatures]
     MAX_ITR = 100
     itr = 0
     N = 0.01
     v=1
-    u=1/100
+    u = {}
+    u['polyak'] = 0
+    u['nag'] = 1/100
+    u[None] = 0
     while itr < MAX_ITR:
         for i in range(0, len(W_old)):
-            v = u*v + ( N * sigma(train, W_old, i,u,v))
+            v = u[momentum]*v + ( N * sigma(train, W_old, i,u[momentum],v))
             W_new[i] = W_old[i]+v
         W_old = W_new
         itr += 1
@@ -74,7 +87,7 @@ def rep(i, data):
 
 
 def run(TRAIN_SIZE=.7):
-    FILE = 'dataset.csv'
+    FILE = filename
     lines = csv.reader(open(FILE))
     data = list(lines)
     for i in range(len(data)):
@@ -96,7 +109,7 @@ def run(TRAIN_SIZE=.7):
 
 if __name__ == '__main__':
     try:
-        TRAIN_FRACTIONS = [.75]  # , .02, .03, .125, .625, 0.99]
+        TRAIN_FRACTIONS = [.75]
         avg = 1
         accuracy_list = [0.0] * len(TRAIN_FRACTIONS)
         for j in range(len(TRAIN_FRACTIONS)):

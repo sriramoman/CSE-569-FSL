@@ -4,7 +4,7 @@ import csv
 import traceback
 import numpy as np
 
-nfeatures = 2
+nfeatures = 3
 
 momentum="nag"
 # momentum=None
@@ -105,13 +105,6 @@ def hinge(training_data):
     x1 = []
     x2 = []
     x3 = []
-    x4 = []
-    x5 = []
-    x6 = []
-    x7 = []
-    x8 = []
-    x9 = []
-    # x10 = []
     y = []
 
     for parameter in training_data:
@@ -120,7 +113,6 @@ def hinge(training_data):
         x3.append(parameter[2])
         y.append(parameter[3])
     x = np.vstack((x1, x2, x3)).T
-    # x = np.vstack((x1, x2, x3, x4, x5, x6, x7, x8, x9)).T
     return doTraning(x, y)
 
 
@@ -140,7 +132,7 @@ def hinge_loss(w, x, y):
         sig = sigmoid(fx)
         v = y_ * sig
         loss += max(0, 1 - v)
-        # g = sigmoid(fx)(1 - sigmoid(fx))
+        # g = sigmoid(fx)*(1 - sigmoid(fx))
         grad += 0 if v > 1 else -y_ * x_
     return (loss, grad)
 
@@ -173,7 +165,9 @@ def doTraning(x, y, thet=np.array((.1, .02, .3)), nita=0.1, thresh=0.1):
         thet = thet + v
         ws = np.hstack((ws, thet.reshape((nfeatures, 1))))
         ctr += 1
+
     print "Hinge loss with " + momentum + " took " + str(ctr) + " iterations."
+    print "<weight>"+str(ws)+"</weight>"
     return np.sum(ws, 1) / np.size(ws, 1)
 
 

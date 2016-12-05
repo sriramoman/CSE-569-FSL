@@ -4,10 +4,14 @@ import csv
 import traceback
 import numpy as np
 
+# momentum="nag"
+# momentum=None
+momentum = "polyak"
+filename='admission.csv'
+
 nfeatures=2
 Wo=[1, 2, 3, 2, 5, 6, 7, 8, 9][:nfeatures]
 Wn=[0, 0, 0, 0, 0, 0, 0, 0, 0][:nfeatures]
-filename='admission.csv'
 # filename='dataset.csv'
 
 
@@ -161,10 +165,11 @@ def doTraning(x, y, thet=np.array((.1, .02, .3, .4, .5, .6, .3, .5, .2)[:nfeatur
     loss0 = np.inf
     theta = 1
     v = 1
-    u = 0
+    u = 0 if momentum is None else 1
+    feedback = u*v if momentum is 'polyak' else 0
     while np.abs(delta) > thresh and ctr<500:
-        loss, grad = hinge_loss(thet+u*v, x, y)
-        print loss
+        loss, grad = hinge_loss(thet+feedback, x, y)
+        # print loss
         # grad += velocity_w * velocity
         delta = loss0 - loss
         loss0 = loss
@@ -177,6 +182,7 @@ def doTraning(x, y, thet=np.array((.1, .02, .3, .4, .5, .6, .3, .5, .2)[:nfeatur
         thet = thet + v
         ws = np.hstack((ws, thet.reshape((nfeatures, 1))))
         ctr += 1
+    print ctr
     print ws
     return np.sum(ws, 1) / np.size(ws, 1)
 

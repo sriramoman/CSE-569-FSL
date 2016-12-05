@@ -2,14 +2,15 @@ import math
 import random
 import csv
 import traceback
+import numpy as np
 
 nfeatures=2
 Wo = [0, 1, 2, 3, 2, 5, 6, 7, 8, 9][:nfeatures]
 Wn = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0][:nfeatures]
 
-# momentum="nag"
+momentum="nag"
 # momentum=None
-momentum = "nag"
+# momentum = "polyak"
 filename='admission.csv'
 
 def split_dataset(data, train_percentage):
@@ -65,12 +66,15 @@ def LR(train):
     u['polyak'] = 0
     u['nag'] = 1/100
     u[None] = 0
-    while itr < MAX_ITR:
+    feedback = u[momentum] if momentum is 'nag' else 0
+    while itr<500:
         for i in range(0, len(W_old)):
-            v = u[momentum]*v + ( N * sigma(train, W_old, i,u[momentum],v))
+            v = u[momentum]*v + ( N * sigma(train, W_old, i,feedback,v))
             W_new[i] = W_old[i]+v
         W_old = W_new
         itr += 1
+    print itr
+    print W_new
     return W_new
 
 

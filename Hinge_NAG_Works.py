@@ -4,6 +4,10 @@ import csv
 import traceback
 import numpy as np
 
+nfeatures=2
+Wo=[1, 2, 3, 2, 5, 6, 7, 8, 9][:nfeatures]
+Wn=[0, 0, 0, 0, 0, 0, 0, 0, 0][:nfeatures]
+
 
 def split_dataset(data, train_percentage):
     train = []
@@ -43,8 +47,8 @@ def sigma(train, W, i):
 
 
 def LR(train):
-    W_old = [1, 2, 3, 2, 5, 6, 7, 8, 9]
-    W_new = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    W_old = Wo
+    W_new = Wn
 
     MAX_ITR = 100
     itr = 0
@@ -137,11 +141,11 @@ def hinge_loss(w, x, y):
     loss, grad = 0, 0
     for (x_, y_) in zip(x, y):
         fx = np.dot(w, x_)
-        sig = fx
+        sig = sigmoid(fx)
         v = y_ * sig
         loss += max(0, 1 - v)
-        # g = sigmoid(fx)(1 - sigmoid(fx))
-        grad += 0 if v > 1 else -y_ * x_
+        g = sigmoid(fx)*(1 - sigmoid(fx))
+        grad += 0 if v > 1 else -y_ * x_ * g
     return (loss, grad)
 
 
@@ -155,7 +159,7 @@ def doTraning(x, y, thet=np.array((.1, .02, .3, .4, .5, .6, .3, .5, .2)), nita=0
     theta = 1
     v = 1
     u = 0
-    while np.abs(delta) > thresh:
+    while np.abs(delta) > thresh and ctr<500:
         loss, grad = hinge_loss(thet+u*v, x, y)
         print loss
         # grad += velocity_w * velocity

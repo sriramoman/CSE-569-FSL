@@ -3,7 +3,7 @@ import random
 import csv
 import traceback
 
-nfeatures=3
+nfeatures=2
 Wo = [0, 1, 2, 3, 2, 5, 6, 7, 8, 9][:nfeatures]
 Wn = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0][:nfeatures]
 
@@ -55,8 +55,8 @@ def sigma(train, W, i,u,v):
 
 
 def LR(train):
-    W_old = Wo[:nfeatures]
-    W_new = Wn[:nfeatures]
+    W_old = Wo
+    W_new = Wn
     MAX_ITR = 100
     itr = 0
     N = 0.01

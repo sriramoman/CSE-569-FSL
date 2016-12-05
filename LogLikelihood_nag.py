@@ -3,7 +3,6 @@ import random
 import csv
 import traceback
 
-
 def split_dataset(data, train_percentage):
     train = []
     test = list(data)
@@ -15,13 +14,15 @@ def split_dataset(data, train_percentage):
         train.append(line)
     return [train, test]
 
+
 def log_loss(line, W):
     fx = W[0]
     for i in range(1, len(W) - 1):
         fx += line[i] * W[i]
-    #sigmoid
+        print W[i]
     result = round(math.exp(fx), 2) / round(((1 + math.exp(fx))), 2)
     return result
+
 
 def predict(line, W):
     result = log_loss(line, W)
@@ -29,12 +30,13 @@ def predict(line, W):
         return 1
     return 0
 
-def sigma(train, W, i):
+
+def sigma(train, W, i,u,v):
     sum = 0.0
-    total_loss = 0.0
+    for k in range(len(W)):
+        W[k] += u*v
     for line in train:
         loss = log_loss(line, W)
-        print loss
         if i == 0:
             sum += (line[-1] - loss)
         else:
@@ -49,11 +51,11 @@ def LR(train):
     itr = 0
     N = 0.01
     v=1
-    u=1
+    u=1/100
     while itr < MAX_ITR:
         for i in range(0, len(W_old)):
-            v = u*v + (N * sigma(train, W_old, i))
-            W_new[i] = W_old[i] + v
+            v = u*v + ( N * sigma(train, W_old, i,u,v))
+            W_new[i] = W_old[i]+v
         W_old = W_new
         itr += 1
     return W_new

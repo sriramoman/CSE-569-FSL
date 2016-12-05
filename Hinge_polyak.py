@@ -121,6 +121,7 @@ def hinge(training_data):
         y.append(parameter[9])
 
     x = np.vstack((x1, x2, x3, x4, x5, x6, x7, x8, x9)).T
+    print x
     return doTraning(x, y)
 
 
@@ -148,7 +149,11 @@ def hinge_loss(w, x, y):
 def doTraning(x, y, thet=np.array((.1, .02, .3, .4, .5, .6, .3, .5, .2)), nita=0.1, thresh=0.1):
     grad = np.inf
     ws = np.zeros((9, 0))
+    print ws
+    print thet
+    print thet.reshape(9, 1)
     ws = np.hstack((ws, thet.reshape(9, 1)))
+    print ws
     ctr = 1
     delta = np.inf
     loss0 = np.inf

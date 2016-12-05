@@ -7,11 +7,11 @@ import numpy as np
 # momentum="nag"
 # momentum=None
 momentum = "polyak"
-filename='admission.csv'
+filename='rand2.csv'
 
-nfeatures=3
-Wo=[1, 2, 3, 2, 5, 6, 7, 8, 9][:nfeatures]
-Wn=[0, 0, 0, 0, 0, 0, 0, 0, 0][:nfeatures]
+nfeatures = 10
+Wo=[1, 2, 3, 2, 5, 6, 7, 8, 9,10][:nfeatures]
+Wn=[0, 0, 0, 0, 0, 0, 0, 0, 0,0][:nfeatures]
 # filename='dataset.csv'
 
 
@@ -84,6 +84,8 @@ def run(TRAIN_SIZE=.7):
     FILE = filename
     lines = csv.reader(open(FILE))
     data = list(lines)
+    global nfeatures
+    nfeatures = len(data[0]) - 1
     for i in range(len(data)):
         data[i] = [rep(j, data[i]) for j in range(len(data[i]))]
     # print data
@@ -105,34 +107,12 @@ def run(TRAIN_SIZE=.7):
 
 
 def hinge(training_data):
-    x1 = []
-    x2 = []
-    x3 = []
-    x4 = []
-    x5 = []
-    x6 = []
-    x7 = []
-    x8 = []
-    x9 = []
-    # x10 = []
-    y = []
-
-    for parameter in training_data:
-        x1.append(parameter[0])
-        x2.append(parameter[1])
-        x3.append(parameter[2])
-        x4.append(parameter[3])
-        x5.append(parameter[4])
-        # x6.append(parameter[5])
-        # x7.append(parameter[6])
-        # x8.append(parameter[7])
-        # x9.append(parameter[8])
-        # x10.append(parameter[9])
-        y.append(parameter[5])
-        # y.append(parameter[9])
-    # x = np.vstack((x1, x2, x3, x4, x5, x6, x7, x8, x9)).T
-    x = np.vstack((x1, x2, x3, x4, x5)).T
-    return doTraning(x, y)
+    all_data = np.array(training_data).astype(int)
+    print all_data.shape
+    all_x = all_data[:,range(0,np.shape(all_data)[1]-1)]
+    print all_x
+    y = (all_data[:,-1]).T
+    return doTraning(all_x, y)
 
 
 # http://stackoverflow.com/questions/3985619/how-to-calculate-a-logistic-sigmoid-function-in-python
@@ -151,14 +131,15 @@ def hinge_loss(w, x, y):
         sig = sigmoid(fx)
         v = y_ * sig
         loss += max(0, 1 - v)
-        print loss
+#        print loss
         g = sigmoid(fx)*(1 - sigmoid(fx))
         grad += 0 if v > 1 else -y_ *x* g
     return (loss, grad)
 
 
-def doTraning(x, y, thet=np.array((.1, .02, .3, .4, .5, .6, .3, .5, .2)[:nfeatures]), nita=0.001, thresh=0.0001):
+def doTraning(x, y, thet=np.array((.1, .02, .3, .4, .5, .6, .3, .5, .2,.7)), nita=0.001, thresh=0.0001):
     grad = np.inf
+    thet= thet[:nfeatures]
     ws = np.zeros((nfeatures, 0))
     ws = np.hstack((ws, thet.reshape(nfeatures, 1)))
     ctr = 1
@@ -183,8 +164,8 @@ def doTraning(x, y, thet=np.array((.1, .02, .3, .4, .5, .6, .3, .5, .2)[:nfeatur
         thet = thet + v
         ws = np.hstack((ws, thet.reshape((nfeatures, 1))))
         ctr += 1
-    print ctr
-    print ws
+#    print ctr
+#    print ws
     return np.sum(ws, 1) / np.size(ws, 1)
 
 

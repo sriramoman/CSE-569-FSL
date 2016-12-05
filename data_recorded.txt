@@ -1,0 +1,99 @@
+Hinge
+No Momentum
+	Fraction:0.7
+	iter:1
+	total:302
+	failed:154
+	pass:49.0066225166
+
+	Fraction:0.62
+	iter:1
+	total:383
+	failed:209
+	pass:45.4308093995
+
+	Fraction:0.53
+	iter:1
+	total:473
+	failed:244
+	pass:48.4143763214
+
+	Fraction:0.625
+	iter:1
+	total:377
+	failed:173
+	pass:54.1114058355
+
+	Fraction:0.99
+	iter:1
+	total:10
+	failed:4
+	pass:60.0
+
+
+
+Polyak
+	Fraction:0.7
+	iter:1
+	total:302
+	failed:163
+	pass:46.0264900662
+
+	Fraction:0.62
+	iter:1
+	total:383
+	failed:183
+	pass:52.2193211488
+
+	Fraction:0.53
+	iter:1
+	total:473
+	failed:227
+	pass:52.0084566596
+
+	Fraction:0.625
+	iter:1
+	total:377
+	failed:177
+	pass:53.050397878
+
+	Fraction:0.99
+	iter:1
+	total:10
+	failed:4
+	pass:60.0
+
+
+NAG
+	Fraction:0.7
+	iter:1
+	total:302
+	failed:148
+	pass:50.9933774834
+
+	Fraction:0.62
+	iter:1
+	total:383
+	failed:186
+	pass:51.4360313316
+
+	Fraction:0.53
+	iter:1
+	total:473
+	failed:236
+	pass:50.1057082452
+
+	Fraction:0.625
+	iter:1
+	total:377
+	failed:178
+	pass:52.7851458886
+
+	Fraction:0.99
+	iter:1
+	total:10
+	failed:4
+	pass:60.0
+
+
+

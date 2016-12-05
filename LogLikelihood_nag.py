@@ -4,14 +4,15 @@ import csv
 import traceback
 import numpy as np
 
-nfeatures=3
-Wo = [0, 1, 2, 3, 2, 5, 6, 7, 8, 9][:nfeatures]
-Wn = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0][:nfeatures]
+nfeatures=9
+Wo = [0, 1, 2, 3, 2, 5, 6, 7, 8, 9,1][:nfeatures]
+# Wo = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0][:nfeatures]
+Wn = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0][:nfeatures]
 
-momentum="nag"
+# momentum="nag"
 # momentum=None
-# momentum = "polyak"
-filename='admission.csv'
+momentum = "polyak"
+filename='dataset.csv'
 
 def split_dataset(data, train_percentage):
     train = []
@@ -29,30 +30,33 @@ def log_loss(line, W):
     fx = W[0]
     for i in range(1, len(W) - 1):
         fx += line[i] * W[i]
-        print W[i]
+        # print W[i]
     result = round(math.exp(fx), 2) / round(((1 + math.exp(fx))), 2)
     return result
 
 
 def predict(line, W):
     result = log_loss(line, W)
-    if result >= 1:
+    # print result
+    if result >= 0.5:
         return 1
     return 0
 
 
 def sigma(train, W, i,u,v):
     sum = 0.0
+    total_loss=0
     for k in range(len(W)):
         W[k] += u*v
     for line in train:
         loss = log_loss(line, W)
+        total_loss+=loss
         # print loss
         if i == 0:
             sum += (line[-1] - loss)
         else:
             sum += line[i] * (line[-1] - loss)
-    return sum
+    return sum,total_loss
 
 
 def LR(train):
@@ -61,20 +65,29 @@ def LR(train):
     MAX_ITR = 100
     itr = 0
     N = 0.01
+    thresh = 0.01
     v=1
     u = {}
     u['polyak'] = 0
     u['nag'] = 1/100
     u[None] = 0
     feedback = u[momentum] if momentum is 'nag' else 0
-    while itr<500:
+    delta = np.inf
+    loss0 = np.inf
+    while itr<100:
         for i in range(0, len(W_old)):
-            v = u[momentum]*v + ( N * sigma(train, W_old, i,feedback,v))
+            sig,loss=sigma(train, W_old, i,feedback,v)
+            # print "loss:",loss
+            # print "loss0:",loss0
+            delta = loss0 - loss
+            print "delta:",np.abs(delta)
+            loss0 = loss
+            v = u[momentum]*v + ( N * sig)
             W_new[i] = W_old[i]+v
         W_old = W_new
         itr += 1
-    print itr
-    print W_new
+    print "itr:",itr
+    # print W_new
     return W_new
 
 
@@ -90,7 +103,7 @@ def rep(i, data):
     return int(x)
 
 
-def run(TRAIN_SIZE=.7):
+def run(TRAIN_SIZE):
     FILE = filename
     lines = csv.reader(open(FILE))
     data = list(lines)
@@ -113,7 +126,7 @@ def run(TRAIN_SIZE=.7):
 
 if __name__ == '__main__':
     try:
-        TRAIN_FRACTIONS = [.75]
+        TRAIN_FRACTIONS = [.35]
         avg = 1
         accuracy_list = [0.0] * len(TRAIN_FRACTIONS)
         for j in range(len(TRAIN_FRACTIONS)):

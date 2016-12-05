@@ -4,7 +4,7 @@ import csv
 import traceback
 import numpy as np
 
-nfeatures=2
+nfeatures=3
 Wo = [0, 1, 2, 3, 2, 5, 6, 7, 8, 9][:nfeatures]
 Wn = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0][:nfeatures]
 
@@ -36,7 +36,7 @@ def log_loss(line, W):
 
 def predict(line, W):
     result = log_loss(line, W)
-    if result >= 0.5:
+    if result >= 1:
         return 1
     return 0
 

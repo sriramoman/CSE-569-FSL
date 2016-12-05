@@ -22,9 +22,9 @@ x_min, x_max = all_x[:, 0].min() - .5, all_x[:, 0].max() + .5
 y_min, y_max = all_x[:, 1].min() - .5, all_x[:, 1].max() + .5
 
 plt.xlim(x_min, x_max)
-plt.xticks(np.arange(x_min, x_max,0.2))
+plt.xticks(np.arange(x_min, x_max,1))
 plt.ylim(y_min, y_max+40)
-plt.yticks(np.arange(y_min, y_max,0.2))
+plt.yticks(np.arange(y_min, y_max,1))
 
 Z = y
 ax = plt.gca()

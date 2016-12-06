@@ -19,10 +19,11 @@ predicted_thresh = 0.5
 thet = np.array((.1, .02, .3, .4, .5, .6, .3, .5, .2, .7))
 nita = 0.001
 thresh = 0.0001
-filename = 'rand.csv'
+filename = 'src/rand.csv'
 
 
 def read_csv(data, train_percentage):
+    #referred http://www.pythonforbeginners.com/systems-programming/using-the-csv-module-in-python/
     train = []
     test = list(data)
     train_size = int(train_percentage * len(data))

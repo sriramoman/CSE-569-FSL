@@ -16,13 +16,13 @@ Wn = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0][:nfeatures]
 itr = 0
 
 predicted_thresh = 0.5
-filename = 'dataset.csv'
+filename = 'src/dataset.csv'
 
 def read_csv(data, train_percentage):
+    #referred http://www.pythonforbeginners.com/systems-programming/using-the-csv-module-in-python/
     train = []
     test = list(data)
     train_size = int(train_percentage * len(data))
-
     while len(train) <= train_size:
         i = random.randrange(len(test))
         line = test.pop(i)
@@ -72,6 +72,7 @@ def log_likelihood(train):
     feedback = u[momentum] if momentum is 'nag' else 0
     while itr < 100:
         for i in range(0, len(W_old)):
+            #referred https://github.com/ragavvenkatesan/yann/tree/master/yann/core
             sig, loss = sigma(train, W_old, i, feedback, v)
             v = u[momentum] * v + (N * sig)
             W_new[i] = W_old[i] + v

@@ -4,8 +4,8 @@ import csv
 import traceback
 import numpy as np
 
-# momentum="nag"
-momentum=None
+momentum="nag"
+# momentum=None
 # momentum = "polyak"
 filename='rand.csv'
 iters=0
@@ -13,7 +13,7 @@ iters=0
 nfeatures = 10
 Wo=[1, 2, 3, 2, 5, 6, 7, 8, 9,10][:nfeatures]
 Wn=[0, 0, 0, 0, 0, 0, 0, 0, 0,0][:nfeatures]
-predicted_thresh = 0.3
+predicted_thresh = 0.5
 
 
 def split_dataset(data, train_percentage):
@@ -39,7 +39,7 @@ def fx(line, W):
 
 def predict(line, W):
     predcited_value = fx(line,W)
-    expected_value = line[-1]
+    expected_value = line[-1] if line[-1]==1 else 0
     predicted_difference = np.abs(np.abs(expected_value)-predcited_value)
     if predicted_difference <= predicted_thresh:
         return 1
@@ -86,12 +86,13 @@ def run(TRAIN_SIZE):
     # Validate predicted outcome against
     for line in test:
         passed += predict(line, W)
-    print "Training Fraction:" + str(TRAIN_SIZE)
-    print "Iterations:"+str(iters)
-    print "Total Data Tested:" + str(len(test))
-    print "Failed:" + str(len(test) - passed)
-    print "Pass:" + str(passed*100 / float(len(test))), "%"
-    print ""
+    print "Loss type: Hinge"
+    print "Training Fraction: " + str(TRAIN_SIZE)
+    print "Iterations: "+str(iters)
+    print "Total Data Tested: " + str(len(test))
+    print "Failed: " + str(len(test) - passed)
+    print "Pass: " + str(passed*100 / float(len(test))), "%"
+    print "Momentum: ",str(momentum)
     return 1.0 - (passed / float(len(test)))
 
 
@@ -141,8 +142,6 @@ def doTraning(x, y, thet=np.array((.1, .02, .3, .4, .5, .6, .3, .5, .2,.7)), nit
         v = u*v - nita*grad
         thet = thet + v
         ctr += 1
-    # ws = thet.reshape(nfeatures, 1)
-    # ws = np.sum(ws, 1) / np.size(ws, 1)
     ws = thet[0]
     global iters
     iters=ctr
@@ -152,7 +151,7 @@ def doTraning(x, y, thet=np.array((.1, .02, .3, .4, .5, .6, .3, .5, .2,.7)), nit
 
 if __name__ == '__main__':
     try:
-        TRAIN_FRACTIONS = [.7]#, .62, .53, .625, 0.99]
+        TRAIN_FRACTIONS = [.62]#, .62, .53, .625, 0.99]
         avg = 1
         accuracy_list = [0.0] * len(TRAIN_FRACTIONS)
         for j in range(len(TRAIN_FRACTIONS)):

@@ -6,9 +6,10 @@ import sys
 
 try:
     momentum = sys.argv[1]
-    print momentum
+    if momentum not in ["nag","polyak","none"]:
+        momentum = "polyak"
 except:
-    momentum = "nag"
+    momentum = "none"
 
 nfeatures = 9
 Wo = [0, 1, 2, 3, 2, 5, 6, 7, 8, 9, 1][:nfeatures]
@@ -17,6 +18,10 @@ itr = 0
 
 predicted_thresh = 0.5
 filename = 'src/dataset.csv'
+estim_time={}
+estim_time["none"]="20s"
+estim_time["polyak"]="10s"
+estim_time["nag"]="5s"
 
 def read_csv(data, train_percentage):
     #referred http://www.pythonforbeginners.com/systems-programming/using-the-csv-module-in-python/
@@ -115,6 +120,7 @@ def train(training_portion):
 
 def exec_loglikelihood():
     try:
+        print "Estimated time",estim_time[momentum]
         train_component = [.35]
         average = 1
         accuracy_list = [0.0] * len(train_component)

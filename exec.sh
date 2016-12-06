@@ -4,4 +4,4 @@ a="src/Hinge.py"
 else
 a="src/LogLikelihood.py"
 fi
-python2.7 $a $2
+python $a $2

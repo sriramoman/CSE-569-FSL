@@ -7,9 +7,10 @@ import sys
 
 try:
     momentum = sys.argv[1]
-    print momentum
+    if momentum not in ["nag","polyak","none"]:
+        momentum = "polyak"
 except:
-    momentum = "polyak"
+    momentum = "none"
 
 iters = 0
 nfeatures = 10
@@ -20,6 +21,10 @@ thet = np.array((.1, .02, .3, .4, .5, .6, .3, .5, .2, .7))
 nita = 0.001
 thresh = 0.0001
 filename = 'src/rand.csv'
+estim_time={}
+estim_time["none"]="80s"
+estim_time["polyak"]="10s"
+estim_time["nag"]="5s"
 
 
 def read_csv(data, train_percentage):
@@ -37,8 +42,6 @@ def read_csv(data, train_percentage):
 def fx(line, W):
     fx = W[0]
     for i in range(1, len(W)):
-        line_i = line[i]
-        w_i = W[i]
         fx += line[i] * W[i]
     return sigmoid(fx)
 
@@ -159,6 +162,7 @@ def train_hinge(x, y):
 
 def exec_hingeloss():
     try:
+        print "Estimated time",estim_time[momentum]
         train_component = [.62]
         average = 1
         accuracy_list = [0.0] * len(train_component)

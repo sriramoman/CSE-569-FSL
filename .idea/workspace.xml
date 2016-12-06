@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b938c9a8-07d8-4893-a397-e687a60ea0d3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Hinge.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LogLikelihood.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dataset.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rand.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/README.rtf" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exec.sh" afterPath="$PROJECT_DIR$/exec.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Hinge.py" afterPath="$PROJECT_DIR$/src/Hinge.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LogLikelihood.py" afterPath="$PROJECT_DIR$/src/LogLikelihood.py" />
     </list>
     <ignored path="FSL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,18 +28,18 @@
       <file leaf-file-name="exec.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exec.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+            <state relative-caret-position="102">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Hinge.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Hinge.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Hinge.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2720">
-              <caret line="160" column="8" selection-start-line="160" selection-start-column="8" selection-end-line="160" selection-end-column="8" />
+            <state relative-caret-position="55">
+              <caret line="163" column="8" selection-start-line="163" selection-start-column="8" selection-end-line="164" selection-end-column="51" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -47,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LogLikelihood.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LogLikelihood.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/LogLikelihood.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            <state relative-caret-position="255">
+              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -84,8 +84,9 @@
         <option value="$PROJECT_DIR$/Hinge.py" />
         <option value="$PROJECT_DIR$/LogLikelihood.py" />
         <option value="$PROJECT_DIR$/exec.sh" />
-        <option value="$PROJECT_DIR$/src/LogLikelihood.py" />
+        <option value="$PROJECT_DIR$/README.rtf" />
         <option value="$PROJECT_DIR$/src/Hinge.py" />
+        <option value="$PROJECT_DIR$/src/LogLikelihood.py" />
       </list>
     </option>
   </component>
@@ -170,7 +171,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Hinge">
+  <component name="RunManager" selected="Python.LogLikelihood">
     <configuration default="false" name="lr" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -205,23 +206,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Hinge_nag_corrected" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="FSL" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Hinge_nag_corrected.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="Hinge_NAG_Works" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -252,6 +236,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="FSL" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Hinge.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="LogLikelihood" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="FSL" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/LogLikelihood.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -406,17 +407,17 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.lr" />
       <item index="1" class="java.lang.String" itemvalue="Python.LogLikelihood_nag" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Hinge_nag_corrected" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Hinge_NAG_Works" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Hinge" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Hinge_NAG_Works" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Hinge" />
+      <item index="4" class="java.lang.String" itemvalue="Python.LogLikelihood" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Hinge" />
-        <item index="1" class="java.lang.String" itemvalue="Python.lr" />
-        <item index="2" class="java.lang.String" itemvalue="Python.LogLikelihood_nag" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Hinge_NAG_Works" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Hinge_nag_corrected" />
+        <item index="0" class="java.lang.String" itemvalue="Python.LogLikelihood" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Hinge" />
+        <item index="2" class="java.lang.String" itemvalue="Python.lr" />
+        <item index="3" class="java.lang.String" itemvalue="Python.LogLikelihood_nag" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Hinge_NAG_Works" />
       </list>
     </recent_temporary>
   </component>
@@ -434,7 +435,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32859176" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3499289" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3499289" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46372688" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -731,28 +732,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exec.sh">
+    <entry file="file://$PROJECT_DIR$/README.rtf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        <state relative-caret-position="0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LogLikelihood.py">
+    <entry file="file://$PROJECT_DIR$/exec.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        <state relative-caret-position="102">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Hinge.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="163" column="8" selection-start-line="163" selection-start-column="8" selection-end-line="164" selection-end-column="51" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Hinge.py">
+    <entry file="file://$PROJECT_DIR$/src/LogLikelihood.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2720">
-          <caret line="160" column="8" selection-start-line="160" selection-start-column="8" selection-end-line="160" selection-end-column="8" />
+        <state relative-caret-position="255">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

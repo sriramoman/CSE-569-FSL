@@ -6,11 +6,8 @@ import numpy as np
 
 nfeatures=9
 Wo = [0, 1, 2, 3, 2, 5, 6, 7, 8, 9,1][:nfeatures]
-# Wo = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0][:nfeatures]
 Wn = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0][:nfeatures]
 
-# momentum="nag"
-# momentum=None
 momentum = "polyak"
 filename='dataset.csv'
 

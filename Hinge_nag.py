@@ -7,7 +7,7 @@ import numpy as np
 # momentum="nag"
 momentum=None
 # momentum = "polyak"
-filename='rand.csv'
+filename='rand5k.csv'
 iters=0
 
 nfeatures = 10
@@ -85,8 +85,10 @@ def run(TRAIN_SIZE):
     FILE = filename
     lines = csv.reader(open(FILE))
     data = list(lines)
-    global nfeatures
+    global nfeatures,Wo,Wn
     nfeatures = len(data[0]) - 1
+    Wo=[Wo[:nfeatures]]
+    Wn=[Wn[:nfeatures]]
     for i in range(len(data)):
         data[i] = [rep(j, data[i]) for j in range(len(data[i]))]
     # print data
@@ -133,13 +135,15 @@ def hinge_loss(w, x, y):
     for (x_, y_) in zip(x, y):
         print "w :",w
         print "x_ :",x_
+        x_T = np.array([x_]).transpose()
+        print "x_T :",x_T
         ind = 0
         fx = 0
-        for ind in range(0,len(w)):
-            print "w_[",ind,"]",w[ind]," | x_[",ind,"]",x_[ind]
-            fx += w[ind]*x_[ind]
-            print "fx_[",ind,"]",fx
-        # fx = np.dot(w, x_T)
+        # for ind in range(len(w)-1):
+        #     print "w_[",ind,"]",w[ind]," | x_[",ind,"]",x_[ind]
+        #     fx += w[ind]*x_[ind]
+        #     print "fx_[",ind,"]",fx
+        fx = np.dot(w, x_T)
         print "fx : ",fx
         sig = sigmoid(fx)
         v = y_ * sig
@@ -152,7 +156,7 @@ def hinge_loss(w, x, y):
 
 def doTraning(x, y, thet=np.array((.1, .02, .3, .4, .5, .6, .3, .5, .2,.7)), nita=0.001, thresh=0.0001):
     grad = np.inf
-    thet= thet[:nfeatures]
+    thet= np.array([thet[:nfeatures]])
     ws = np.zeros((nfeatures, 0))
     ws = np.hstack((ws, thet.reshape(nfeatures, 1)))
     ctr = 1
@@ -161,7 +165,7 @@ def doTraning(x, y, thet=np.array((.1, .02, .3, .4, .5, .6, .3, .5, .2,.7)), nit
     theta = 1
     v = 1
     u = 0 if momentum is None else 1
-    feedback = u*v if momentum is 'polyak' else 0
+    feedback = u*v if momentum is 'nag' else 0
     while np.abs(delta) > thresh:
         loss, grad = hinge_loss(thet+feedback, x, y)
         # print loss
@@ -169,7 +173,7 @@ def doTraning(x, y, thet=np.array((.1, .02, .3, .4, .5, .6, .3, .5, .2,.7)), nit
         loss0 = loss
         # if np.linalg.norm(grad) == 0:
         #     break
-        # nabla = grad / np.linalg.norm(grad)
+        nabla = grad / np.linalg.norm(grad)
         v = u*v - nita*grad
         thet = thet + v
         ctr += 1
@@ -183,7 +187,7 @@ def doTraning(x, y, thet=np.array((.1, .02, .3, .4, .5, .6, .3, .5, .2,.7)), nit
 
 if __name__ == '__main__':
     try:
-        TRAIN_FRACTIONS = [.7, .62, .53, .625, 0.99]
+        TRAIN_FRACTIONS = [.7]#, .62, .53, .625, 0.99]
         avg = 1
         accuracy_list = [0.0] * len(TRAIN_FRACTIONS)
         for j in range(len(TRAIN_FRACTIONS)):

@@ -7,13 +7,13 @@ import numpy as np
 # momentum="nag"
 momentum=None
 # momentum = "polyak"
-filename='rand5k.csv'
+filename='rand.csv'
 iters=0
 
 nfeatures = 10
 Wo=[1, 2, 3, 2, 5, 6, 7, 8, 9,10][:nfeatures]
 Wn=[0, 0, 0, 0, 0, 0, 0, 0, 0,0][:nfeatures]
-# filename='dataset.csv'
+predicted_thresh = 0.3
 
 
 def split_dataset(data, train_percentage):
@@ -30,14 +30,18 @@ def split_dataset(data, train_percentage):
 
 def fx(line, W):
     fx = W[0]
-    for i in range(1, len(W) - 1):
+    for i in range(1, len(W)):
+        line_i = line[i]
+        w_i = W[i]
         fx += line[i] * W[i]
-    result = round(math.exp(fx), 2) / round(((1 + math.exp(fx))), 2)
-    return result
+    return sigmoid(fx)
 
 
 def predict(line, W):
-    if fx(line, W) >= 0.5:
+    predcited_value = fx(line,W)
+    expected_value = line[-1]
+    predicted_difference = np.abs(np.abs(expected_value)-predcited_value)
+    if predicted_difference <= predicted_thresh:
         return 1
     else:
         return 0
@@ -51,23 +55,6 @@ def sigma(train, W, i):
         else:
             sum += line[i] * (line[-1] - fx(line, W))
     return sum
-
-
-def LR(train):
-    W_old = Wo
-    W_new = Wn
-
-    MAX_ITR = 100
-    itr = 0
-    n = 0.01
-
-    while itr < MAX_ITR:
-        for i in range(0, len(W_old)):
-            W_new[i] = W_old[i] + (n * sigma(train, W_old, i))
-        W_old = W_new
-        itr += 1
-    return W_new
-
 
 def rep(i, data):
     if i == (len(data) - 1):
@@ -95,62 +82,44 @@ def run(TRAIN_SIZE):
     train, test = split_dataset(data, TRAIN_SIZE)
     # compute the hinge loss and assign it to W
     W = hinge(train)
-    # W = LR(train)
     passed = 0
     # Validate predicted outcome against
     for line in test:
-        p = predict(line, W)
-        if line[-1] == p:
-            passed += 1
-    print "Fraction:" + str(TRAIN_SIZE)
-    print "iter:"+str(iters)
-    print "total:" + str(len(test))
-    print "failed:" + str(len(test) - passed)
-    print "pass:" + str(passed*100 / float(len(test)))
+        passed += predict(line, W)
+    print "Training Fraction:" + str(TRAIN_SIZE)
+    print "Iterations:"+str(iters)
+    print "Total Data Tested:" + str(len(test))
+    print "Failed:" + str(len(test) - passed)
+    print "Pass:" + str(passed*100 / float(len(test))), "%"
     print ""
     return 1.0 - (passed / float(len(test)))
 
 
 def hinge(training_data):
     all_data = np.array(training_data).astype(int)
-    # print all_data.shape
     all_x = all_data[:,range(0,np.shape(all_data)[1]-1)]
-    # print all_x
     y = (all_data[:,-1]).T
     return doTraning(all_x, y)
 
 
 # http://stackoverflow.com/questions/3985619/how-to-calculate-a-logistic-sigmoid-function-in-python
 def sigmoid(x):
-    print "sigoid:",x
     f = 1 / float(1 + math.exp(-x))
-    if f > 0:
-        return 1
-    else:
-        return -1
+    return f
 
 
 def hinge_loss(w, x, y):
-    loss, grad = 0, 0
+    loss=0
+    grad=np.zeros((1,nfeatures))
     for (x_, y_) in zip(x, y):
-        print "w :",w
-        print "x_ :",x_
         x_T = np.array([x_]).transpose()
-        print "x_T :",x_T
-        ind = 0
-        fx = 0
-        # for ind in range(len(w)-1):
-        #     print "w_[",ind,"]",w[ind]," | x_[",ind,"]",x_[ind]
-        #     fx += w[ind]*x_[ind]
-        #     print "fx_[",ind,"]",fx
         fx = np.dot(w, x_T)
-        print "fx : ",fx
         sig = sigmoid(fx)
         v = y_ * sig
         loss += max(0, 1 - v)
-        print "loss",loss
         g = sig*(1 - sig)
-        grad += 0 if v > 1 else -y_ *x* g
+        zero_vectors =  np.zeros((1,nfeatures))
+        grad += (zero_vectors) if v > 1 else (-y_ *x_* g)
     return (loss, grad)
 
 
@@ -161,28 +130,24 @@ def doTraning(x, y, thet=np.array((.1, .02, .3, .4, .5, .6, .3, .5, .2,.7)), nit
     ws = np.hstack((ws, thet.reshape(nfeatures, 1)))
     ctr = 1
     delta = np.inf
-    loss0 = np.inf
-    theta = 1
-    v = 1
+    loss_prev = np.inf
+    v = np.ones((1,nfeatures))
     u = 0 if momentum is None else 1
-    feedback = u*v if momentum is 'nag' else 0
     while np.abs(delta) > thresh:
+        feedback = u*v if momentum is 'nag' else 0
         loss, grad = hinge_loss(thet+feedback, x, y)
-        # print loss
-        delta = loss0 - loss
-        loss0 = loss
-        # if np.linalg.norm(grad) == 0:
-        #     break
-        nabla = grad / np.linalg.norm(grad)
+        delta = loss_prev - loss
+        loss_prev = loss
         v = u*v - nita*grad
         thet = thet + v
         ctr += 1
-        print "iters",ctr
-    ws = np.hstack((ws, thet.reshape((nfeatures, 1))))
+    # ws = thet.reshape(nfeatures, 1)
+    # ws = np.sum(ws, 1) / np.size(ws, 1)
+    ws = thet[0]
     global iters
     iters=ctr
-#    print ws
-    return np.sum(ws, 1) / np.size(ws, 1)
+    print "Final Weight Vector:",ws
+    return ws
 
 
 if __name__ == '__main__':
